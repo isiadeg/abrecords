@@ -1,0 +1,6 @@
+.form-wrapper{
+    box-sizing: border-box;
+}
+.form-wrapper::ng-host{
+    width: auto;
+}

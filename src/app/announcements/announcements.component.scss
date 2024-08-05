@@ -1,0 +1,54 @@
+.announcement-wrapper{
+
+
+}
+progress{
+    width: 100%;
+}
+.announcement-illustration{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.actions-to-take-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    justify-content: center;
+}
+.right-words{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .main-title{
+        font-weight: bold;
+        font-size: 1rem;
+    }
+}
+.each-actions{
+    
+    display: flex;
+    padding: 10px;
+    margin: 8px;
+    gap:12px;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 6%;
+    flex: 1;
+
+    .icon{
+        background-color: #f9f9f9;
+        padding: 5px;
+        border-radius: 50%;
+        width: max-content;
+
+    }
+    &:hover{
+        background-color: white;
+        cursor: pointer;
+    }
+    .action-exp-faint{
+        max-width: 120px;
+        text-align: center;
+    }
+}

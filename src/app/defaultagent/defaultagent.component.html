@@ -1,0 +1,63 @@
+
+@if(!location){
+<!-- {{locationss | json}} -->
+@if(locationss){
+<div class="form-wrapper">
+    <label for="locationform"> Choose a Location to set Default Manager</label>
+    <mat-select [(ngModel)]="selectLocationForm" #locationForm="ngModel" (selectionChange)="update_exp()"
+        placeholder="Choose Location">
+        @for(eachLocation of locationss ; track $index){
+        <mat-option [value]="eachLocation"> {{eachLocation.name}}</mat-option>
+        }
+    </mat-select>
+
+
+</div>}
+@else {
+<div class="form-wrapper no-location ">
+    <div>No Location Yet</div>
+
+    <button mat-flat-button (click)="addlocation()"> Add Location </button>
+</div>
+}
+}@else {
+
+<div class="form-wrapper">
+    <div class="form-headline  d-flex justify-content-between">
+        <div class="form-title">
+            <div class="form-name"> {{formsMetaData.form_name+location.id}}
+            </div>
+            <div class="form-exp">
+                {{
+                formsMetaData.form_exp
+                }}
+            </div>
+        </div>
+        <div class="other-actions">
+            <mat-icon></mat-icon>
+        </div>
+
+
+    </div>
+    <div class="actual-form">
+        <form [formGroup]="dafaultAgentForm">
+            <mat-select formControlName="chosen_agent" placeholder="Choose A default Agent">
+                <mat-label>Choose A default Agent</mat-label>
+                
+                @for(eachAgent of currentAgents; track $index){
+                <mat-option [value]="eachAgent">
+                    <!-- {{eachAgent.name}} -->
+                    <div style="display: flex;" class="option-container">
+                        <mat-icon>person</mat-icon>
+                        <div class="person_details">
+                            <div class="name">{{' '+eachAgent.name}}</div>
+                            <div class="email">{{ ' '+eachAgent.email}}</div>
+                        </div>
+                    </div>
+                </mat-option>
+                }
+            </mat-select>
+        </form>
+    </div>
+</div>
+}

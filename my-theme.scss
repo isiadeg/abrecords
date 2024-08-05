@@ -1,0 +1,55 @@
+@use '@angular/material' as mat;
+@use './m3-theme';
+@use './m32-theme.scssm3-theme' as m32-theme;
+@use './src/app/siden-theme' as siden;
+
+@include mat.core();
+
+$my-own-theme: mat.define-theme((typography: (plain-family: 'Lato',
+                brand-family: 'Montserrat'
+
+            )));
+
+html {
+    // Apply the light theme by default
+    //   @include mat.core-theme(m3-theme.$light-theme);
+    //   @include mat.button-theme(m3-theme.$light-theme);
+    @include mat.all-component-colors(m3-theme.$light-theme);
+    
+    @include mat.system-level-colors(m3-theme.$light-theme);
+    // @include mat.sidenav-color(m32-theme.$dark-theme);
+    @include mat.system-level-typography($my-own-theme);
+
+    --sys-surface-container: #f9f9fb;
+    @include siden.theme(m3-theme.$light-theme);
+    @include siden.theme-two($my-own-theme);
+   
+.other-actions button{
+    --sys-primary: #00264e;
+    --mdc-outlined-button-label-text-color:#00264e;
+}
+.mat-expansion-panel-content{
+    --mat-expansion-container-text-font: 'Lato', sans-serif
+};
+.mat-expansion-panel-header{
+--mat-expansion-header-text-font: 'Lato', sans-serif
+}
+}
+
+form button{
+    --mdc-filled-button-container-color: #00264e;
+}
+
+mat-form-field{
+    --mat-form-field-container-vertical-padding : 0.6rem;
+   
+--mat-form-field-container-height: 40px;
+}
+mat-sidenav-container, .popup-wrapper {
+    --sys-surface-container: #f9f9fb;
+    
+    
+}
+.login-page .form-wrapper{
+    --sys-surface-container: #f9f9fb;
+}

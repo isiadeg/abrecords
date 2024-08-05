@@ -1,0 +1,59 @@
+<div *appAnnouncements="let data from hero"> {{data}} </div>
+
+
+<div class="announcement-wrapper">
+    <div class="announcement-topic">
+        <div class="right-words">
+            <div class="main-title">
+                To-do List
+            </div>
+            <div class="sub-title">
+                To start using this app, complete the following tasks
+            </div>
+        </div>
+        <div class="left-action">
+
+        </div>
+
+    </div>
+    <div class="announcement-illustration">
+        <div class="illust-title">
+
+        </div>
+        <div class="illustgan">
+            <div class="illust-wrapper">
+                <progress [value]="'20'" min="0" max="100"></progress>
+            </div>
+        </div>
+        <div class="illust-exp">
+            1 of 5 tasks completed
+        </div>
+    </div>
+    <div class="actions-to-take-wrapper">
+        <a class="each-actions mat-app-background" (click)="openlocation()">
+            <div class="icon">
+                <mat-icon>store</mat-icon>
+            </div>
+            <div class="action-exp-faint">
+                Add your POS Business locations
+            </div>
+        </a>
+        <a class="each-actions mat-app-background" (click)="openAgents()">
+            <div class="icon">
+                <mat-icon>person</mat-icon>
+            </div>
+            <div class="action-exp-faint">
+                Add agents to each POS Location
+            </div>
+        </a>
+        <a class="each-actions mat-app-background"  (click)="openDefaultAgents()">
+            <div class="icon">
+                <mat-icon>person</mat-icon>
+            </div>
+            <div class="action-exp-faint">
+                Choose a default manager for each location
+            </div>
+        </a>
+    </div>
+
+</div>

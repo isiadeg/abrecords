@@ -1,0 +1,183 @@
+
+
+<div class="form-wrapper">
+    <!-- {{withdrawForm.value| json}} -->
+  
+    <div class="form-headline  d-flex justify-content-between">
+        <div class="form-title">
+            <div class="form-name">@if(formtype){ {{formMetadata.get(formtype)?.form_name}}
+                }</div>
+            <div class="form-exp">
+                @if(formtype){{{
+                    formMetadata.get(formtype)?.form_exp
+                }}},you can
+                <button mat-button style="padding: 0px; padding-top: 0px; padding-bottom: 0px; height: auto;
+                    vertical-align: baseline;">
+                    record something else
+                </button> or <a [routerLink]="['/app/records']" routerLinkActive="router-link-active">
+                    go back to the records home
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="actual-form">
+        <form [formGroup]="withdrawForm">
+            
+                
+          
+            
+            
+            <mat-form-field appearance="outline" class="inline-input">
+                <mat-hint align="start">
+                   Which date did you perform this transaction? It's most likely today's date
+                </mat-hint>
+                <input matInput [matDatepicker]="picker" formControlName="date_of_transaction" >
+                <mat-datepicker #picker>
+                    <mat-datepicker-actions>
+                        <button mat-stroked-button matDatepickerCancel>
+                            Cancel
+                        </button>
+                        <button mat-flat-button matDatepickerApply>
+                            Apply
+                        </button>
+                    </mat-datepicker-actions>
+
+                </mat-datepicker>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+
+                <mat-label>
+                   Date of Transaction.
+                </mat-label>
+
+
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" class="inline-input">
+                <mat-hint align="start">
+                    What time did you perform the transaction
+                </mat-hint>
+                <input type="time" matInput formControlName="time_of_transaction">
+                
+                <mat-label>
+                    Time of Transaction
+                </mat-label>
+
+
+            </mat-form-field>
+
+            @if(formtype){
+                <!-- @for(eachkey of eachtypeKeys; track $index){
+                    {{eachkey}}
+            <mat-form-field appearance="outline">
+                <mat-hint align="start">
+                     
+                     {{formFieldsMetadata[formtype][eachkey]['fieldHint']}}
+                </mat-hint>
+                <input [type]="formFieldsMetadata[formtype][eachkey]['fieldType']" matInput [formControlName]="eachkey">
+                <div matPrefix>  {{formFieldsMetadata[formtype][eachkey]['fieldPrefix']}}</div>
+                <mat-label>
+                    {{formFieldsMetadata[formtype][eachkey]['fieldLabel']}}
+                </mat-label>
+
+
+            </mat-form-field>
+        } -->
+        @for(eachkey of formFieldsMetadata.get(formtype); track $index){
+          @if(eachkey[0] !== 'type' && eachkey[0] !== 'sub_type'){
+    <mat-form-field appearance="outline">
+        <mat-hint align="start">
+             
+             {{eachkey[1]['fieldHint']}}
+        </mat-hint>
+        @if(eachkey[1]['fieldType'] !== 'textarea' ){
+        <input [type]="eachkey[1]['fieldType']" matInput [formControlName]="eachkey[0]">
+    }@else {
+        <textarea matInput [formControlName]="eachkey[0]" rows="4">
+        </textarea>
+    }
+        <div matPrefix>  {{eachkey[1]['fieldPrefix']}}</div>
+        <mat-label>
+            {{eachkey[1]['fieldLabel']}}
+        </mat-label>
+
+
+    </mat-form-field>
+}
+} 
+
+
+        }
+
+            <!-- 
+            
+            Insha Allah, In the nearest future, there will be feature for admin to fix charges,
+            If Admin does, then, there will be a fixed charge notice and a normal charges field, 
+            If the user enters a different charge from the admin fixed charge, a notice will be 
+            given to the user to either correct the charge to the admin's or give reason for the charge 
+            changes, either as a discount or others.
+            There will be a flag to notify the admin on the particular rcord and the admin can choose to disapprove of the 
+            reason, in tis case, the user owes the admin the outstanding amount.
+
+            For now charges + amount given must be = total amount supposed to withdraw;
+
+            if the charges becomes negative, a flag will be put on the record for the admin and the admin can accept 
+            or enter what the correct charge supposed to be, in the later case,
+            the user owes the admin this corrected charge plus the abs(of the negative charge)
+
+            
+            
+            -->
+<!-- 
+            <mat-form-field appearance="outline">
+                <mat-hint align="start">
+                    How much did you charge the customer for this transaction?
+                </mat-hint>
+                <input type="number" matInput formControlName="charges">
+                <div matPrefix> ₦ </div>
+                <mat-label>
+                    Charges
+                </mat-label>
+
+
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-hint align="start">
+                    How much did you withdraw from customer's account using their ATM Card
+                </mat-hint>
+                <input type="number" matInput formControlName="amount_deducted_from_customer_ATM">
+                <div matPrefix> ₦ </div>
+                <mat-label>
+                    Amount Withdrawn from Customer's ATM Card
+                </mat-label>
+
+
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-hint align="start">
+                    If you have anything you'll like to note or remember about this particular transaction, Please,
+                    write it here
+                </mat-hint>
+                <textarea matInput formControlName="record_remarks" rows="4">
+                </textarea>
+
+                <mat-label>
+                    Other Details About This Transaction
+                </mat-label>
+
+
+            </mat-form-field> -->
+            <div class="d-flxend">
+                <button mat-flat-button type="submit" value="Save Record">
+                    Save Record
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

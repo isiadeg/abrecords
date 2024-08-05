@@ -1,0 +1,51 @@
+<section class="popup-container">
+    <div mat-dialog-title>
+        <div class="popup-title">
+            Choose A Record to Fill
+        </div>
+        <div class="action-card-body">
+            What do you want to record? Select it from the options below
+        </div>
+    </div>
+    <mat-dialog-content>
+        <mat-list>
+            <a class="d-flex" (click)="dialogref.close('I am closed')" [routerLink]="['/app/records/withdrawal/card']" routerLinkActive="router-link-active" >
+                <mat-list-item >
+                    <mat-icon matListItemIcon style=" color: #f2c000;">credit_card</mat-icon>
+                    <div class="item-title" matListItemTitle>
+                    ATM Card Withdrawal Record
+                    </div>
+                    <div class="item-title" matListItemLine>
+                        <span>
+                        Click to record a withdrawal transaction
+                        that involves the use of customer's ATM Card
+                        </span>
+                    </div>
+                </mat-list-item>
+               
+                <mat-icon>chevron_right</mat-icon>
+           
+            </a>
+
+
+            <a (click)="dialogref.close('I am closed')" class="d-flex" [routerLink]="['/app/records/withdrawal/Transfer']" routerLinkActive="router-link-active" >
+                <mat-list-item >
+                    <mat-icon matListItemIcon style=" color: tomato;">tap_and_play</mat-icon>
+                    <div class="item-title" matListItemTitle>
+                    Withdrawal with Transfer Record
+                    </div>
+                    <div class="item-title" matListItemLine>
+                        <span>
+                        Click to record a withdrawal transaction
+                        where the customer transferred the money to Company's account
+                        </span>
+                    </div>
+                </mat-list-item>
+                
+                <mat-icon>chevron_right</mat-icon>
+                
+            </a>
+
+        </mat-list>
+    </mat-dialog-content>
+</section>

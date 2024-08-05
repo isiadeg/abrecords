@@ -1,0 +1,169 @@
+<div class="login-page">
+    <div class="form-wrapper">
+        <!-- {{withdrawForm.value| json}} -->
+
+        <div class="form-headline  d-flex justify-content-between">
+            <div class="form-title">
+                <div class="form-name">
+                    Admin Sign Up
+                </div>
+                <div class="form-exp">
+                Sign up for an account to start using this app
+                </div>
+            </div>
+
+
+        </div>
+        <div class="actual-form">
+            <form [formGroup]="registerForm">
+                @for(eachcontrol of formBuildArray; track $index){
+                @if(eachcontrol[1].length < 2){ @for(eachcontrolcontrol of eachcontrol[1]; track $index){
+                    <div class="each-field">
+                    <mat-form-field appearance="outline"
+                    matTooltip="{{eachcontrolcontrol.get(eachcontrol[0])?.fieldHint}}">
+
+                    <input [type]="eachcontrolcontrol.get(eachcontrol[0])!.fieldType" matInput
+                        [formControlName]="eachcontrol[0]" (focus)="ispasswordFocused(eachcontrol[0])">
+                    <mat-label>{{eachcontrolcontrol.get(eachcontrol[0])?.fieldLabel}}</mat-label>
+                    @if(eachcontrolcontrol.get(eachcontrol[0])?.fieldPrefix){
+                    <mat-icon matPrefix>{{eachcontrolcontrol.get(eachcontrol[0])?.fieldPrefix}}</mat-icon>
+                    }
+                    @if(eachcontrolcontrol.get(eachcontrol[0])?.fieldSuffix){
+                    <mat-icon matSuffix>{{eachcontrolcontrol.get(eachcontrol[0])?.fieldSuffix}}</mat-icon>
+                    }<mat-hint>
+                        <mat-icon
+                            matTooltip="{{eachcontrolcontrol.get(eachcontrol[0])?.fieldHint}}">info</mat-icon></mat-hint>
+                    </mat-form-field>
+                    
+                        @if(registerForm.get(eachcontrol[0])?.errors?.['required'] &&
+                        registerForm.get(eachcontrol[0])?.touched){
+                            <div class="summary" style="color:red">
+                                This field is required
+                            </div>
+                        }
+                        @if(registerForm.get(eachcontrol[0])?.errors?.['email'] &&
+                        registerForm.get(eachcontrol[0])?.touched &&
+                        registerForm.get(eachcontrol[0])?.dirty ){
+                            <div class="summary" style="color:red">
+                                Please enter a valid email
+                            </div>
+                        }
+                    </div>
+                    }}@else {
+
+                    <div [formGroup]="conv(registerForm.get(eachcontrol[0]), 'formGroup')">
+                        @for(eachcontrolcontrol of eachcontrol[1]; track $index){
+                        @for(tiniest of eachcontrolcontrol; track $index;){
+                            <div class="each-field">
+                        <mat-form-field appearance="outline" matTooltip="{{tiniest[1].fieldHint}}">
+
+                            <input #inp [type]="tiniest[1].fieldType" matInput [formControlName]="tiniest[0]"
+                                (focus)="ispasswordFocused(tiniest[0])">
+                            <mat-label>{{tiniest[1].fieldLabel}}</mat-label>
+                            @if(tiniest[1].fieldPrefix){
+                            <mat-icon matPrefix>{{tiniest[1].fieldPrefix}}</mat-icon>
+                            }
+                            @if(tiniest[1].fieldSuffix){
+                            @if(tiniest[0].toLocaleLowerCase().includes("password")){
+                            <mat-icon matSuffix
+                                (click)="tiniest[1].fieldType=='password'?tiniest[1].fieldType='text':
+                                    tiniest[1].fieldType='password'">{{tiniest[1].fieldType=='password'?tiniest[1].fieldSuffix:'visibility'}}</mat-icon>
+                            }@else{
+                            <mat-icon matSuffix>{{tiniest[1].fieldSuffix}}</mat-icon>
+                            }
+                            }
+
+
+                            <mat-hint>
+                                <mat-icon matTooltip="{{tiniest[1].fieldHint}}">info</mat-icon>
+                            </mat-hint>
+                        </mat-form-field>
+                        @if(tiniest[0].toLowerCase() == 'password' && password.dirty){
+
+
+                        <div class="summary">
+                            @if(password.errors?.['passwordPattern']){
+                            <mat-icon style="color:red; vertical-align: bottom;">cancel</mat-icon>
+                            }@else {
+                            <mat-icon style="color:green; vertical-align: bottom;">verified</mat-icon>
+                            }
+                            {{password.errors?.['passwordPattern']?' Invalid Password':' Valid Password'}}
+                        </div>
+
+
+                        }
+                        <!-- {{passwordFocused}}{{password.dirty}} {{passwordPatternKeys | json}} -->
+                        @if(tiniest[0].toLowerCase() == 'password' && passwordFocused && password.dirty){
+                        <div class="all-pattern">
+                            @for(eachpattern of passwordPatternKeys; track $index;){
+                                <div class="each-pattern">
+                                    @if(!passwordPattern[eachpattern].trueOrFalse){
+                                        <mat-icon style="color:red; vertical-align: bottom;">cancel</mat-icon>
+                                        }@else {
+                                        <mat-icon style="color:green; vertical-align: bottom;">verified</mat-icon>
+                                        }
+                                        {{
+                                            passwordPattern[eachpattern].messageOnFalse}}
+                                </div>
+                            }
+                        </div>
+
+                        }
+                        <!-- {{conv(registerForm.get(eachcontrol[0]), 'formGroup').errors | json}} -->
+                        @if(tiniest[0].toLowerCase() == 'confirm_password' && password.dirty && confirm_password.dirty &&
+                         conv(registerForm.get(eachcontrol[0]), 'formGroup').errors?.['UnequalPassword']){
+                            <div class="summary" style="color: red;">
+                                Your passwords do not match!
+                            </div>
+                        }
+                       
+                        @if(conv(registerForm.get(eachcontrol[0]), 'formGroup').get(tiniest[0]).errors?.['required'] &&
+                        conv(registerForm.get(eachcontrol[0]), 'formGroup').get(tiniest[0]).touched){
+                            <div class="summary" style="color:red">
+                                This field is required
+                            </div>
+                        }
+                        @if(conv(registerForm.get(eachcontrol[0]), 'formGroup').get(tiniest[0]).errors?.['email'] &&
+                        conv(registerForm.get(eachcontrol[0]), 'formGroup').get(tiniest[0]).touched &&
+                        conv(registerForm.get(eachcontrol[0]), 'formGroup').get(tiniest[0]).dirty ){
+                            <div class="summary" style="color:red">
+                                Please enter a valid email
+                            </div>
+                        }
+                    </div>
+                        }
+
+                        }
+                    </div>
+
+
+
+
+
+                    }
+
+                    <!-- <mat-form-field appearance="outline">
+                    <input type="text" matInput>
+                    <mat-label>Email</mat-label>
+                    <mat-icon matPrefix>mail</mat-icon>
+                    <mat-hint>Enter your email</mat-hint>
+                </mat-form-field> -->
+
+                    }
+
+                    <!-- <mat-form-field appearance="outline">
+                    <input type="password" matInput>
+                    <mat-label>Password</mat-label>
+                    <mat-icon matPrefix>key</mat-icon>
+                    <mat-hint>Enter your password</mat-hint>
+                </mat-form-field> -->
+                    <div class="submit-arena">
+
+                        <input type="submit" mat-flat-button value="Submit">
+                    </div>
+                    <div class="bottom-info" style="text-align: center;margin: 11px;">
+                        Registered, Login here
+                    </div>
+            </form>
+        </div>
+    </div>

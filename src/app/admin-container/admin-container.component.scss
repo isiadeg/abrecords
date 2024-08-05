@@ -1,0 +1,32 @@
+.sidenav-cont{
+    min-height: 100vh;
+    mat-sidenav{
+    width: 250px;
+    box-sizing: border-box;
+    height: 100vh;
+    position: fixed;
+    padding: 15px 12px;
+    border-radius: 0px;
+}
+mat-sidenav-content{
+    padding-left: 10px;
+}
+}
+.mat-accordion{
+    max-width: 650px;
+    padding: 15px 0px 20px 0px;
+    margin-left: 20px;
+    display: block;
+    background-color: transparent;
+
+}
+.mat-sidenav-content .mat-accordion .mat-expansion-panel{
+    border-radius: 8px;
+    box-shadow: none;
+}
+@media screen and (max-width:768px) {
+    .mat-accordion{
+       
+        padding: 15px 20px 20px 0px;
+    }
+}

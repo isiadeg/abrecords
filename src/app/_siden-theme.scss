@@ -1,0 +1,69 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme){
+    
+    .sidenav-cont, .popup-wrapper,.login-page {
+        background-color: mat.get-theme-color($theme, surface-container-low)
+    }
+    .sidenav1{
+background-color: mat.get-theme-color($theme, surface-container)
+    }
+    a.card-d:hover{
+        background-color: mat.get-theme-color($theme, surface-container-lowest);
+    }
+    a.card-d {
+        background-color: mat.get-theme-color($theme, surface-container);
+        mat-icon{
+           // color:mat.get-theme-color($theme, primary, 50);
+        }
+        
+    }
+    .action-card-title{
+        color: mat.get-theme-color($theme, on-surface);
+    }
+    .form-wrapper, .popup-container section{
+        background-color: mat.get-theme-color($theme, surface-container);
+    }
+    .mat-accordion, .mat-expansion-panel {
+        background-color: mat.get-theme-color($theme, surface-container);
+    }
+    
+}
+@mixin typography($theme){
+    body{
+        font: mat.get-theme-typography($theme, body-small, font);
+    }
+    .mat-accordion, .mat-expansion-panel-content {
+        font: mat.get-theme-typography($theme, body-small, font);
+    }
+    .action-card-title{
+        font: mat.get-theme-typography($theme, title-medium, font);
+    }
+    .popup-wrapper .liketable{
+        font: mat.get-theme-typography($theme, headline-small, font);
+    }
+    .action-card-body, .popup-wrapper{
+        font: mat.get-theme-typography($theme, body-medium, font);
+    }
+    .form-wrapper, .breadcrumb, .mdc-text-field--outlined .mdc-floating-label{
+        font: mat.get-theme-typography($theme, body-medium, font);
+       
+    }
+    button span{
+        font: mat.get-theme-typography($theme, body-medium, font);
+    }
+    
+    
+    .form-title .form-name, .popup-title{
+        font: mat.get-theme-typography($theme, headline-small, font);
+    }
+}
+
+@mixin theme($theme){
+    @include color($theme);
+}
+
+@mixin theme-two($theme){
+    @include typography($theme);
+}

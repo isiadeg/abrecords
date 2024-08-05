@@ -1,0 +1,14 @@
+.sidenav-cont {
+  min-height: 100vh;
+}
+.sidenav-cont mat-sidenav {
+  width: 250px;
+  box-sizing: border-box;
+  height: 100vh;
+  position: fixed;
+  padding: 15px 12px;
+  border-radius: 0px;
+}
+.sidenav-cont mat-sidenav-content {
+  padding-left: 10px;
+}/*# sourceMappingURL=webapp.component.css.map */

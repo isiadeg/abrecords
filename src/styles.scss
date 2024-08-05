@@ -1,1 +1,153 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the theme object.
+$nnnu-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+:root {
+  @include mat.all-component-themes($nnnu-theme);
+}
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($nnnu-theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($nnnu-theme);
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0;  }
+.action-wrapper{
+  display: flex;
+ flex-direction: column;
+ align-items: center;
+  justify-content: center;
+  gap:23px;
+ & > a{
+  text-decoration: none;
+  color: inherit;
+ }
+ .action-card{
+  display: flex;
+  justify-content: flex-start;
+  gap:12px;
+  flex-direction: column;
+ }
+a{
+  width: 170px;
+  padding: 20px 15px 50px 15px;
+ 
+  background-image: url("/action-card-bg.svg");
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  border-radius: 10px;
+    
+  .action-card-title{
+    font-weight:bold;
+
+  }
+   .action-card-body{
+    width: 90%;
+  }
+  mat-icon, img{
+   align-self: center;
+    transform: rotate(5deg);
+  }
+}
+}
+
+.host-wrapper{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width:600px) {
+  .action-wrapper{
+    display: flex;
+   flex-direction: row;
+   align-items: unset;
+
+}
+}
+
+
+.form-wrapper{
+  margin: 20px 20px 20px 20px;
+  padding: 20px 15px;
+  max-width: 650px;
+  border-radius: 10px;
+  .form-headline{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap:20px;
+      margin-bottom: 30px;
+  
+  }
+  .form-title{
+      //flex: 0 1 400px;
+      
+  }
+  .form-name{
+    margin-bottom: 17px;
+    margin-top: 0px; padding-top: 0px;
+    font-weight: 500;
+    line-height: 27px;
+}
+.form-exp{
+   // color: #00000099
+  // width: 80%;
+}
+}
+.mat-mdc-form-field{
+  padding: 8px;
+  border-radius: 0px;
+  display:block;
+  margin-bottom: 20px;
+}
+
+.mat-mdc-form-field-hint.mat-mdc-form-field-bottom-align::ng-deep{
+   text-align: center;
+}
+div[matPrefix]{
+   padding: 0px 10px;
+}
+.mdc-text-field__input.mat-mdc-input-element::-webkit-calendar-picker-indicator {
+   display: block;
+ }
+ @media screen and (min-width:768px) {
+   .mat-mdc-form-field{
+       min-width: 300px;
+       margin-bottom: 15px;
+ }
+}
+@media screen and (max-width:375px) {
+  .mat-mdc-form-field::ng-deep{
+     
+      margin-bottom: 30px;
+}
+}

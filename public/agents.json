@@ -1,0 +1,30 @@
+[
+    {
+        "Mosafejo": [
+            {
+                "name": "Sodiq Adegboyega",
+                "email": "assidiiq25@gmail.com",
+                "phone_number": "08109290534"
+            },
+            {
+                "name": "Isiaka Adegboyega",
+                "email": "assdaqu@gmail.com",
+                "phone_number": "09067524410"
+            }
+        ]
+    },
+    {
+        "Oluomo": [
+            {
+                "name": "Hasan Maryam",
+                "email": "hasanmaryam@gmail.com",
+                "phone_number": "07048559254"
+            },
+            {
+                "name": "Jelilat Hasan",
+                "email": "hasanjelilat@gmail.com",
+                "phone_number": "07068559754"
+            }
+        ]
+    }
+]

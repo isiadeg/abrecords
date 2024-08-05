@@ -1,0 +1,41 @@
+
+<div [appActionCard]="'level1'">
+    <a  [routerLink]="['/app/records/withdrawal/card']" routerLinkActive="router-link-active" [appActionCard]="'level1b'">
+
+    <div [appActionCard]="'level2'">
+            <mat-icon  style="color:#f2c000;">credit_card</mat-icon>
+             <!-- <img src="/card-withdrawal.png" width="26" height="26"> -->
+            <div class="action-card-title">
+                Record A Withdrawal With ATM Card
+            </div>
+            <div class="action-card-body mat-body-small">
+                Choose this if you gave cash to a customer & you deducted the cash amount and charges from the customer's ATM Card
+            </div>
+    </div>
+</a>
+
+<a  [routerLink]="['/app/records/withdrawal/transfer']" routerLinkActive="router-link-active" [appActionCard]="'level1b'">
+
+    <div [appActionCard]="'level2'">
+            <mat-icon  style="color:tomato;">tap_and_play</mat-icon>
+            <div class="action-card-title">
+                Record A Withdrawal With Transfer
+            </div>
+            <div class="action-card-body mat-body-small">
+                Choose this if you gave cash to a customer & the customer transferred the cash amount plus charges to the
+                company's or POS account
+            </div>
+    </div>
+</a>
+<a [routerLink]="['/app/records/withdrawal/transfer']" routerLinkActive="router-link-active" [appActionCard]="'level1b'">
+
+    <div [appActionCard]="'level2'">
+        <mat-icon>receipt_long</mat-icon>
+        <div class="action-card-title">
+            Record A Withdrawal 
+        </div>
+        <div class="action-card-body">
+            Choose this if you gave cash to a customer  </div>
+</div>
+</a>
+</div>

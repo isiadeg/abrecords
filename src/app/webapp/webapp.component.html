@@ -1,0 +1,21 @@
+<mat-sidenav-container  hasBackdrop="false" class="sidenav-cont" >
+    <mat-sidenav fixedInViewPort
+    [mode]="isMobile?'over': 'side'" [opened] = "!isMobile" #sidenav1 class="sidenav1">
+      @if(isMobile){
+        <button mat-icon-button (click)="sidenav1.toggle()">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+  
+  
+    </mat-sidenav>
+  <mat-sidenav-content>
+    @if (isMobile) {
+    <button mat-icon-button (click)="sidenav1.toggle()"><mat-icon>menu</mat-icon></button>
+  }
+   <app-breadcrumb></app-breadcrumb>
+
+    <router-outlet></router-outlet>
+    
+  </mat-sidenav-content>
+  </mat-sidenav-container>

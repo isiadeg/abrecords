@@ -1,0 +1,105 @@
+.login-page{
+    height: auto;
+    min-height: 100vh;
+}
+.form-wrapper{
+    .mat-mdc-form-field{
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        padding-top: 5px;
+        mat-hint{
+            mat-icon{
+              display: none;
+            // color: #0004;
+            
+            }
+            text-align: center;
+            display: block;
+        }
+        mat-icon[matSuffix]{
+            height: 18px;width: 18px; font-size: 18px;
+            vertical-align: middle;
+        }
+
+    }
+   
+    .summary{
+        margin-top: -15px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+
+    }
+    
+    .mat-mdc-form-field .mat-icon[matprefix]{
+        font-size: 18px;
+        height: 18px; width: 18px;
+        vertical-align: middle;
+    }
+    .all-pattern{
+       
+        margin-bottom: 10px;
+        padding: 0px 5px;
+    }
+    .each-pattern{
+        //border-bottom: 1px solid #e9e9ec;
+    
+        text-align: left;
+        padding: 8px 0px;
+        word-wrap: break-word;
+        text-overflow: ellipsis;
+        display: flex;
+        align-items: center;
+        gap:8px;
+        mat-icon{
+            font-size: 14px; height: 14px; width: 14px;
+            vertical-align: bottom;
+            padding-right: 4px;
+
+
+        }
+    }
+    .each-pattern:not(.each-pattern:last-child){
+        border-bottom: 1px solid #e9e9ec;
+    }
+}
+.mdc-text-field__input{
+    width: auto;
+}
+
+.submit-arena {
+    display: flex;
+    justify-content: flex-end;
+    input{
+    width: auto;
+    padding: 0.6rem 1.8rem;
+}
+
+}
+@media (min-width:768px){
+    .form-wrapper{
+        width:650px;
+        box-sizing: border-box;
+    }
+    .mat-mdc-form-field{
+        margin-bottom: 10px;
+    }
+    .each-field{
+        width: 50%;
+        box-sizing: border-box;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .each-field:nth-child(3n){
+        width: 100%;
+        .mat-mdc-form-field{
+        max-width: 100% !important;
+        
+    }
+    }
+    // .mat-mdc-form-field{
+    //     display: inline-block !important;
+    //     max-width: 300px !important;
+    // }
+
+}

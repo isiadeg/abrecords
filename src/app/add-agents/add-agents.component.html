@@ -1,0 +1,31 @@
+<div> @if(!selectLocationForm){
+    <div class="form-wrapper">
+   
+    @if(locationsOptions){
+        <label for="locationform"> Choose a Location to Add Agent</label>
+        <mat-select [(ngModel)]="selectLocationForm" #locationForm="ngModel" (selectionChange)="update_exp()" 
+        placeholder="Choose Location">
+            @for(eachLocation of locationsOptions; track $index){
+                <mat-option [value]="eachLocation.id"> {{eachLocation.name}}</mat-option>
+            }
+        </mat-select>}@else {
+            <div class="no-location">
+                <div>No Location Yet</div>
+                
+                <button mat-flat-button (click)="addlocation()"> Add Location </button>
+            </div>
+        }
+    
+
+</div>
+}
+
+    @if(selectLocationForm){
+       
+    
+    <app-dynamic-forms [formFieldsData]="formsData" [formMetaData]="formsMetaData"
+    (result)="processFormValues($event)"></app-dynamic-forms>
+    }
+   
+</div>
+

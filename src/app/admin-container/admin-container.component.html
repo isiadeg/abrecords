@@ -1,0 +1,32 @@
+<mat-sidenav-container  hasBackdrop="false" class="sidenav-cont" >
+    <mat-sidenav fixedInViewPort
+    [mode]="isMobile?'over': 'side'" [opened] = "!isMobile" #sidenav1 class="sidenav1">
+      @if(isMobile){
+        <button mat-icon-button (click)="sidenav1.toggle()">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+  
+  
+    </mat-sidenav>
+  <mat-sidenav-content>
+    @if (isMobile) {
+    <button mat-icon-button (click)="sidenav1.toggle()"><mat-icon>menu</mat-icon></button>
+  }
+   <app-breadcrumb></app-breadcrumb>
+   <mat-accordion [multi]="false">
+    <mat-expansion-panel class="announcements" expanded="true">
+      <mat-expansion-panel-header>
+          <mat-panel-title>Important Notifications</mat-panel-title>
+          
+      </mat-expansion-panel-header>
+      <app-announcements></app-announcements>
+      
+    </mat-expansion-panel>
+  </mat-accordion>
+   <div style="max-width:690px;">
+  <router-outlet></router-outlet>
+</div>
+  </mat-sidenav-content>
+  
+  </mat-sidenav-container>

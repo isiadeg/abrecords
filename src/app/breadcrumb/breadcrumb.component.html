@@ -1,0 +1,51 @@
+<div class="d-flex-betw">
+
+
+
+
+
+    
+    <nav class="breadcrumb" style="--bs-breadcrumb-divider: '>'">
+        <ol class="breadcrumb">
+            
+          @for(eachFrag of templateFragArray; track $index){  <li class="breadcrumb-item">
+            
+                <a [title]="eachFrag.real_title" [routerLink]="[eachFrag.url]" routerLinkActive="router-link-active">
+                    <mat-icon>home</mat-icon> @if(eachFrag.real_title == 'app'){
+                        App Home
+                    }@else {
+                        {{eachFrag.real_title | titlecase}}
+                    }
+                </a>
+            </li>
+        }
+          
+        </ol>
+    </nav>
+
+
+
+
+
+    <div class="other-actions ">
+       
+        @if(isMobile){
+            <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openAllForms()">
+            <mat-icon>receipt_long</mat-icon> Record Something Else
+        </button>
+            </mat-menu>
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon >
+                    more_vert
+                </mat-icon>
+            </button>
+
+           
+        }@else{
+        <button mat-stroked-button  (click)="openAllForms()">
+            <mat-icon>receipt_long</mat-icon> Record Something Else
+        </button>
+    }
+    </div>
+</div>

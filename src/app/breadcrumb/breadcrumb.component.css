@@ -1,0 +1,70 @@
+.breadcrumb::ng-deep a {
+  color: black;
+  text-decoration: none;
+}
+.breadcrumb::ng-deep .active a {
+  color: #005cbb;
+  font-weight: bold;
+}
+.breadcrumb::ng-deep li:not(:first-child)::before {
+  content: ">";
+  margin-right: 10px;
+  font-size: 18px;
+}
+.breadcrumb::ng-deep li::marker {
+  content: "";
+}
+.breadcrumb::ng-deep ol {
+  display: flex;
+  gap: 18px;
+}
+.breadcrumb::ng-deep mat-icon {
+  vertical-align: bottom;
+  display: none;
+}
+
+.d-flex-betw::ng-deep {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 30px;
+  margin-left: 20px;
+}
+.d-flex-betw::ng-deep .other-actions {
+  width: 100%;
+  /*display: none;*/
+}
+.d-flex-betw::ng-deep .other-actions button {
+  float: right;
+}
+.d-flex-betw::ng-deep .other-actions button, .d-flex-betw::ng-deep form button {
+  border-radius: 4px !important;
+  padding: 0.5rem 1rem;
+  height: auto;
+}
+.d-flex-betw::ng-deep .other-actions button mat-icon, .d-flex-betw::ng-deep form button mat-icon {
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+.d-flex-betw::ng-deep ol {
+  padding-left: 3px;
+}
+
+@media screen and (min-width: 768px) {
+  .d-flex-betw::ng-deep {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+  }
+  .d-flex-betw::ng-deep .other-actions {
+    width: auto;
+    display: block;
+  }
+  .d-flex-betw::ng-deep .other-actions button {
+    float: none;
+  }
+}/*# sourceMappingURL=breadcrumb.component.css.map */

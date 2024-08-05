@@ -1,0 +1,73 @@
+<div class="form-wrapper">
+    <!-- {{withdrawForm.value| json}} -->
+  
+    <div class="form-headline  d-flex justify-content-between">
+        <div class="form-title">
+            <div class="form-name"> {{formMetaData.get('location')?.form_name}}
+                </div>
+            <div class="form-exp">
+              {{
+                    formMetaData.get('location')?.form_exp
+                }}
+            </div>
+        </div>
+        <div class="other-actions">
+            <mat-icon></mat-icon>
+        </div>
+
+
+    </div>
+    <div class="actual-form">
+        <form [formGroup]="locationForm">
+            
+               
+
+
+          
+                <!-- @for(eachkey of eachtypeKeys; track $index){
+                    {{eachkey}}
+            <mat-form-field appearance="outline">
+                <mat-hint align="start">
+                     
+                     {{formFieldsMetadata[formtype][eachkey]['fieldHint']}}
+                </mat-hint>
+                <input [type]="formFieldsMetadata[formtype][eachkey]['fieldType']" matInput [formControlName]="eachkey">
+                <div matPrefix>  {{formFieldsMetadata[formtype][eachkey]['fieldPrefix']}}</div>
+                <mat-label>
+                    {{formFieldsMetadata[formtype][eachkey]['fieldLabel']}}
+                </mat-label>
+
+
+            </mat-form-field>
+        } -->
+        @for(eachkey of formfields.get('location'); track $index){
+          
+    <mat-form-field appearance="outline">
+        <mat-hint align="start">
+             
+             {{eachkey[1]['fieldHint']}}
+        </mat-hint>
+        @if(eachkey[1]['fieldType'] !== 'textarea' ){
+        <input [type]="eachkey[1]['fieldType']" matInput [formControlName]="eachkey[0]" 
+        [placeholder]="eachkey[1]['placeholder']">
+    }@else {
+        <textarea matInput [formControlName]="eachkey[0]" rows="4">
+        </textarea>
+    }
+        <mat-icon matPrefix>  {{eachkey[1]['fieldPrefix']}}</mat-icon>
+        <mat-label>
+            {{eachkey[1]['fieldLabel']}}
+        </mat-label>
+
+
+    </mat-form-field>
+
+} 
+
+  <div class="submit-arena">
+
+<input type="submit" mat-flat-button value="Submit" (click)="addloc()">
+</div>
+        </form>
+</div>
+</div>

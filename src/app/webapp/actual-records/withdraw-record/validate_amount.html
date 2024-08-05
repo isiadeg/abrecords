@@ -1,0 +1,101 @@
+
+<div class="popup-wrapper" tabindex="-1">
+<div class="popup-container" >
+    <section class="popup-title">
+        <mat-icon>warning</mat-icon>  Your Record Doesn't Add Up !!!
+    </section>
+    <section class="popup-description">
+       
+        Going by the amount you entered in the "amount given to customer" field
+        and the amount you entered in the "charges" field, the "amount withdrawn with customer's ATM" 
+        is incorrect. See details below
+    </section>
+    <section class="popup-explanation">
+        <div class="liketable">
+            <div class="title">
+                <div class="empty">
+
+                </div>
+                <div class="title1">
+                    Your Record
+                </div>
+                <div class="title2">
+                    Correct Record
+                </div>
+            </div>
+            <div class="row row-1">
+                <div class="each-record">Amount Given To Customer</div>
+                <div class="each-record">{{amount_given_to_customer}}</div>
+                <div class="each-record">{{amount_given_to_customer}}</div>
+                
+                
+            </div>
+            <div class="row  row-2">
+                <div class="each-record">Charges</div>
+                <div class="each-record error">{{charges}}</div>
+                <div class="each-record ">{{charges}}</div>
+                
+            </div>
+            <div class="row row-3">
+                <div class="each-record">Amount Deducted from Customer's ATM</div>
+                <div class="each-record wrong">   <mat-icon>warning</mat-icon> {{amount_deducted_from_customer_ATM}}
+                <hr><hr>
+                </div>
+                <div class="each-record right"><mat-icon>check</mat-icon> {{amount_given_to_customer + charges}}
+                    <hr><hr>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="correction">
+        <section>
+        <div class="popup-title">
+          <mat-icon>settings</mat-icon>  Correct Your Record 
+        </div>
+        <div class="popup-explanation">
+            Choose one option below to correct the error on your records
+        </div>
+    </section>
+    <section >
+        <div [appActionCard]="'level1'" >
+            <a  [appActionCard]="'level1b'" class="bord">
+        
+            <div [appActionCard]="'level2'">
+                    <div class="action-card-title">
+                       Change "Amount Deducted from Customer's ATM" to 
+                       {{amount_given_to_customer + charges}}
+                    </div>
+                    <div class="action-card-body mat-body-small">
+                        Choose this if the amount you deducted from customer's ATM is
+                        different from what you have entered in the record.
+                    </div>
+                    <button mat-flat-button tabindex="-1">
+                        Change
+                    </button>
+            </div>
+            </a>
+
+            <a  [appActionCard]="'level1b'" class="bord">
+        
+                <div [appActionCard]="'level2'">
+                        <div class="action-card-title">
+                          Reset All  Fields
+                        </div>
+                        <div class="action-card-body mat-body-small">
+                            Choose this if "amount you deducted from customer's ATM" is correct
+                            in the record and something else is incorrect
+                        </div>
+                        <button mat-flat-button tabindex="-1">
+                            Reset
+                        </button>
+                </div>
+                </a>
+        </div>
+    </section>
+    </section>
+    
+</div>
+</div>

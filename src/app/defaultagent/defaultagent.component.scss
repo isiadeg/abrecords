@@ -1,0 +1,45 @@
+.no-location{
+    text-align: center;
+    padding: 5px;
+    color: red;
+}
+.no-location button{
+    border-radius: 4px;
+    background-color: #00264e ;
+    padding: 0.3rem 1rem;
+    margin: 12px 0px;
+}
+.form-wrapper{
+   
+    min-width: 250px;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    .form-name{
+        margin-bottom: 17px;
+        margin-top: 0px;
+        padding-top: 0px;
+        font-weight: 500;
+        line-height: 27px;
+    }
+}
+.mdc-list-item__primary-text{
+    font-family: 'Lato';
+}
+.option-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+.person_details{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    word-break: break-word;
+    
+    .name{
+        font-weight: bold;
+    }
+
+}

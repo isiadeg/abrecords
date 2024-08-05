@@ -1,0 +1,179 @@
+.popup-wrapper{
+    text-align: center;
+    
+}
+.popup-container::ng-deep{
+    padding: 30px;
+}
+
+.popup-title{
+    color: red;
+    font-weight: bold;
+    border-top-left-radius: 12px ;
+    border-top-right-radius: 12px;
+    border-bottom: 1.5px solid #f0f0f2;
+}
+.popup-title .mat-icon{
+    vertical-align: middle;
+    padding-left: 10px;
+}
+.correction .popup-title{
+    color: black;
+    font-weight: normal;
+    border-top-left-radius: 0px ;
+    border-top-right-radius: 0px;
+    margin-bottom: 10px;
+    border-bottom: none;
+}
+.popup-container section{
+    padding: 15px;
+    
+}
+.popup-container section:last-child{
+    border-bottom-left-radius: 12px ;
+    border-bottom-right-radius: 12px;
+}
+
+.popup-description {
+    
+    padding: 20px calc((100% - 400px) / 2);
+}
+.popup-container {
+    border-radius: inherit;
+}
+.popup-wrapper{
+    border-radius: inherit;
+}
+.liketable .title, .liketable .row{
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 8px 0px;
+    font-size: 14px;
+
+}
+.popup-container section.popup-description{
+    padding: 8px 20px;
+    color: #525252;
+}
+
+a.bord{
+  
+   border-radius: 0px;
+    background-image: none;
+    padding-bottom: 10px;
+   border-radius: 4px;
+   
+}
+a .action-card{
+    justify-content: space-between;
+}
+.bord .action-card-title{
+    font-size: 14px;
+    
+}
+.bord .action-card-body{
+  font-size: 12px;
+  width: 100%;
+}
+.bord button{
+    border-radius: 4px !important;
+    padding: 0.5rem 1rem;
+    margin-top: 5px;
+    height: auto;
+    background-color: #00264e;
+}
+.liketable .title div, .liketable .row div{
+    flex: 1 1 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.liketable .title div div:first-child, .liketable .row>div:first-child{
+
+line-height: 20px;
+text-align: left;
+justify-content: flex-start;
+}
+.liketable .title{
+    font-weight: 600;
+}
+.liketable .row-3{
+        border-bottom: none;
+}
+.liketable .row-3>div:not(.each-record:first-child){
+   
+    
+    display: flex;
+   flex-direction: column;
+}
+.wrong hr, .right hr{
+    margin: 2px;
+   
+    width: 40%;
+}
+.each-record.wrong .mat-icon{
+color:red;
+}
+.each-record.wrong{
+    color: red; font-weight: bold;
+}
+.wrong hr{
+    background-color: red;
+}
+.right hr{
+    background-color: green;
+}
+.each-record.right{
+    color: green; font-weight: bold;
+}
+.each-record.right .mat-icon{
+    color:green;
+    }
+    .action-card>div {
+        height: 33%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .action-wrapper > a{
+        box-shadow: 0px 16px 16px 0px rgba(0,0,0,.15);
+        display: FLEX;
+        border-top: 1.5px solid #00264e;
+
+    }
+    .bord .action-card-title {
+        padding: 5px;
+    
+    width: calc(100% + 20px);
+    background: #efefef;
+    margin-left: -15px;
+}
+a:hover .action-card-title{
+ background: transparent;
+}
+.action-wrapper .bord .action-card {
+    gap: 18px;
+}
+@media only screen and (max-width:767px){
+    .action-wrapper > a{
+        box-shadow: 0px 16px 16px 0px rgba(0,0,0,.15);
+        display: block;
+    }
+    .popup-container{
+        padding: 12px;
+    }
+    .popup-description{
+        padding: 20px 20px;
+    }
+    .popup-container section{
+        padding: 10px;
+        
+    }
+    .action-wrapper .bord .action-card {
+        gap: 12px;
+    }
+    .bord button{
+      
+        margin-top: 2px;
+    }
+}
